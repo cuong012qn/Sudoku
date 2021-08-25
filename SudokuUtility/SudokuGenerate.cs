@@ -29,42 +29,7 @@ namespace SudokuUtility
             int diff = level.Difficult();
             if (!diff.Equals(0))
             {
-                //do
-                //{
-                //    if (_Task == null)
-                //    {
-                //        var token = cancelToken.Token;
-                //        _stopwatch.Start();
-                //        _Task = Task.Run(() =>
-                //        {
-                //            while (!cancelToken.IsCancellationRequested)
-                //            {
-                //                CreateMatrix(ref this.Matrix);
-                //                FillMatrix(ref this.Matrix);
-                //            }
-                //        });
-                //    }
-
-                //    while (_Task.Status == TaskStatus.Running)
-                //    {
-                //        TimeSpan ts2 = _stopwatch.Elapsed;
-                //        if (ts2.TotalSeconds >= 1)
-                //        {
-                //            _stopwatch.Stop();
-                //            _stopwatch.Reset();
-                //            countTry++;
-                //            Dispose();
-                //            _Task = null;
-                //            break;
-                //        }
-                //    }
-
-                //    if (_Task != null)
-                //        if (_Task.Status == TaskStatus.RanToCompletion && _stopwatch.IsRunning)
-                //            break;
-                //} while (true);
-                //_stopwatch.Reset();
-
+               
                 CreateMatrix(ref this.Matrix);
                 Task task = Task.Run(() => { FillMatrix(ref this.Matrix); });
                 task.Wait();
